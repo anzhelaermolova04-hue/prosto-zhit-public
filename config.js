@@ -7,3 +7,7 @@ window.SITE_CONFIG = Object.freeze({
   "OWNER_STATUS": "Самозанятая",
   "PRIVACY_EMAIL": "mechtapro@mail.ru"
 });
+const additionsScript = document.createElement('script');
+additionsScript.src = 'content-additions.js';
+additionsScript.defer = true;
+document.head.append(additionsScript);
