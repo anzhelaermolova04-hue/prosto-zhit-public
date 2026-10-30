@@ -209,16 +209,16 @@ function sectionBooking(text) {
 document.querySelector('.added-pains .pain-list')?.insertAdjacentHTML('afterbegin', '<p>На работе ты незаменима. Дома — тоже. Всё держится на тебе. Удобно всем. Кроме тебя.</p><p>Близкие спрашивают, почему ты такая раздражённая. Может, потому что даже отдых всей семьи почему-то организуешь ты.</p><p>Легла спать. Мозг открыл совещание: что не доделала, кому не так ответила и что опять будет завтра. Протокол — до трёх ночи.</p><p>Сначала разберёшься с работой, домом и чужими проблемами. Потом отдохнёшь. Спойлер: это «потом» всё время переносят.</p>');
 document.querySelector('.added-closing')?.after(sectionBooking('Узнала себя? Я предлагаю начать с сеанса Access Bars: на 45–60 минут выйти из режима «всё на мне». Ты лежишь, я работаю с точками на голове. Без очередного задания стать лучшей версией себя.'));
 document.querySelector('.about-personal')?.before(sectionBooking('Здесь не нужно быть прилежной ученицей. Если такой формат тебе ближе, давай договоримся о встрече.'));
-document.querySelector('.about-personal')?.append(sectionBooking('Я сначала попробовала этот подход на себе. Теперь ты можешь прийти ко мне и составить собственное впечатление.'));
+document.querySelector('.about-personal')?.append(sectionBooking('Когда всё держится на тебе, даже отдых становится пунктом в списке дел. Приходи на сеанс — здесь можно просто полежать и дать себе выдохнуть. Хотя бы эти 45–60 минут тебе не нужно никого спасать.'));
 document.querySelector('.added-steps .wrap')?.append(sectionBooking('Всё начинается с сообщения. Напиши, когда тебе удобно, — я подберу кабинет и согласую с тобой встречу. Без предварительного собеседования.'));
 const sessionButton = document.querySelector('.session [data-booking]');
 if (sessionButton) {
   const text = document.createElement('p');
   text.className = 'booking-context';
-  text.textContent = 'Хочешь понять, подходит ли тебе этот формат? Давай выберем время для первой встречи — так у тебя будет собственный опыт, а не ещё одна теория.';
+  text.textContent = 'Хочется выдохнуть, отпустить напряжение и на время выключиться из бесконечного «надо»? Выдели 45–60 минут себе — давай договоримся о сеансе.';
   sessionButton.before(text);
 }
-document.querySelector('.certificate-grid')?.append(sectionBooking('Обучение я прошла. Лично работать с тобой тоже буду я. Если хочешь познакомиться с практикой, приходи на сеанс.'));
+document.querySelector('.certificate-grid')?.append(sectionBooking('Хочется, чтобы в голове стало тише, в теле — спокойнее, а вместо «я больше не вывожу» появилось «я выдохнула»? Приходи на сеанс — выдели эти 45–60 минут себе.'));
 document.querySelector('.faq > .wrap')?.append(sectionBooking('Остались вопросы? Напиши мне — отвечу и помогу выбрать время. Знать об Access Bars всё до первой встречи необязательно.'));
 document.querySelector('.added-bonus > .wrap')?.append(sectionBooking('Сертификат можно оставить себе. А если хочется выделить время на настоящую паузу — приходи на сеанс. Здесь можно пойти дальше слов и действительно дать себе отдохнуть.'));
 const finalButton = document.querySelector('.final [data-booking]');
