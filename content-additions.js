@@ -77,8 +77,14 @@ if (quiz) {
 }
 
 document.querySelector('.hero .booking-row [data-booking]')?.insertAdjacentHTML('afterend', '<a class="cta hero-quiz-cta" href="#quiz">Получить разрешение ничего не делать <span aria-hidden="true">→</span></a>');
-const heroAside = document.querySelector('.hero-body .aside');
-if (heroAside) heroAside.textContent = 'Вам не нужно ничего объяснять, вспоминать и делать правильно.';
+const heroLead = document.querySelector('.hero-body .lead');
+if (heroLead) {
+  heroLead.textContent = 'Вам не нужно ничего объяснять, вспоминать и делать правильно.';
+  heroLead.classList.add('hero-emphasis');
+}
+const heroDescription = document.querySelector('.hero-body p:not(.lead):not(.aside)');
+if (heroDescription) heroDescription.textContent = 'Вы располагаетесь на кушетке. А Я провожу сеанс. Вам не нужно снова пересказывать прошлое, искать причины и выполнять домашние задания.';
+document.querySelector('.hero-body .aside')?.remove();
 const aboutPhoto = document.querySelector('.about-photo img');
 if (aboutPhoto) {
   aboutPhoto.src = 'assets/session-with-client.jpg';
