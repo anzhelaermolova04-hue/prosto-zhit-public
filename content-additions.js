@@ -1,4 +1,12 @@
 'use strict';
+document.querySelectorAll('.certificate-button img, #certificate-dialog img').forEach(img => {
+  img.src = 'assets/access-bars-certificate-clear.jpg';
+  img.removeAttribute('srcset');
+  const frame = document.createElement('span');
+  frame.className = 'certificate-photo-view';
+  img.replaceWith(frame);
+  frame.append(img);
+});
 const content = `
 <section class="added-section added-pains"><div class="wrap"><h2>Знакомо?</h2><div class="pain-list"><p>Ты ходишь к психологу — он даёт домашнее задание. Ты его не делаешь. Чувствуешь вину.</p><p>Ты скачала три приложения для медитации. Открыла одно. Два раза.</p><p>Ты прочитала «Силу настоящего», «Атомные привычки» и ещё штук пять книг. Ничего не изменилось.</p><p>Ты знаешь, что надо делать. Но не делаешь. И это бесит.</p></div><p class="added-closing">Хорошая новость: можно иначе. Дальше — как.</p></div></section>
 <section class="added-section added-steps"><div class="wrap"><p class="section-label">По шагам</p><h2>Как это выглядит</h2><ol class="steps-list"><li><strong>Созваниваемся на 5 минут</strong><span>Решаем, где удобно в центре Москвы. Я подбираю коворкинг поближе к тебе.</span></li><li><strong>Ты приходишь</strong><span>Ложишься на кушетку. Одежду снимать не надо. Могу укрыть пледом.</span></li><li><strong>45–60 минут я работаю</strong><span>Можешь уснуть. Можешь не уснуть. Можешь молчать. Можешь говорить. Оба варианта ок.</span></li></ol></div></section>
