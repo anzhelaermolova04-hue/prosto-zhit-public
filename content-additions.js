@@ -108,9 +108,9 @@ document.querySelector('.faq-grid')?.insertAdjacentHTML('beforeend', `<details c
 document.querySelector('.final .closing-copy')?.insertAdjacentHTML('afterbegin','<p class="section-label">И последнее</p><p class="final-added-copy">Полежать дома на диване — это не то же самое. Здесь — 45 минут, где с тебя ничего не требуют. Ни действий, ни инсайтов, ни «работы над собой». Ты лежишь. Я работаю с точками на голове.</p>');
 const sessionPhoto = document.querySelector('.session-photo img');
 if (sessionPhoto) {
-  sessionPhoto.src = 'assets/julia-portrait-shoulder.jpg';
+  sessionPhoto.src = 'assets/session-client-service.jpg';
   sessionPhoto.removeAttribute('srcset'); sessionPhoto.removeAttribute('sizes');
-  sessionPhoto.alt = 'Юлия Ермолова';
+  sessionPhoto.alt = 'Юлия Ермолова проводит индивидуальный сеанс Access Bars';
 }
 const finalPhoto = document.querySelector('.final .photo img');
 if (finalPhoto) {
