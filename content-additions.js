@@ -252,3 +252,10 @@ document.querySelectorAll('main [data-booking]').forEach(button => {
 });
 document.querySelector('.final .facts')?.remove();
 if (sessionConditions[1]) sessionConditions[1].textContent = 'Отдельный кабинет в коворкинге в центре Москвы. Точное место и время согласуем заранее. Выдаю чек.';
+
+const masthead = document.createElement('header');
+masthead.className = 'brand-masthead';
+masthead.innerHTML = '<a href="#main-content" aria-label="Просто жить — к началу сайта"><img src="assets/brand-gold.png" alt="Просто жить — больше возможностей" width="1280" height="1280" decoding="async" fetchpriority="high"></a>';
+document.querySelector('main')?.setAttribute('id', 'main-content');
+document.body.prepend(masthead);
+document.querySelector('.hero .brand')?.remove();
