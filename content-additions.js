@@ -99,10 +99,22 @@ document.querySelector('.about .split > div:first-child')?.insertAdjacentHTML('b
 document.querySelector('.session .condition:last-of-type')?.insertAdjacentHTML('afterend','<p class="condition">Оплата после сеанса — наличными или переводом на карту.</p>');
 document.querySelector('.faq-grid')?.insertAdjacentHTML('beforeend', `<details class="question"><summary><h3>Это массаж головы?</h3><span class="round">+</span></summary><div class="answer"><p>Нет. Массаж — про мышцы. Здесь — про то, что крутится в голове. Работа с 32 точками.</p></div></details><details class="question"><summary><h3>А если я ничего не почувствую?</h3><span class="round">+</span></summary><div class="answer"><p>Тогда ты просто 45 минут никому ничего не должна. Это уже результат.</p></div></details><details class="question"><summary><h3>Сколько сеансов нужно?</h3><span class="round">+</span></summary><div class="answer"><p>Сколько захочешь. Кто-то приходит раз, кто-то раз в месяц. Никаких курсов и абонементов.</p></div></details>`);
 document.querySelector('.final .closing-copy')?.insertAdjacentHTML('afterbegin','<p class="section-label">И последнее</p><p class="final-added-copy">Полежать дома на диване — это не то же самое. Здесь — 45 минут, где с тебя ничего не требуют. Ни действий, ни инсайтов, ни «работы над собой». Ты лежишь. Я работаю с точками на голове.</p>');
+const sessionPhoto = document.querySelector('.session-photo img');
+if (sessionPhoto) {
+  sessionPhoto.src = 'assets/julia-portrait-side.jpg';
+  sessionPhoto.removeAttribute('srcset'); sessionPhoto.removeAttribute('sizes');
+  sessionPhoto.alt = 'Юлия Ермолова';
+}
+const finalPhoto = document.querySelector('.final .photo img');
+if (finalPhoto) {
+  finalPhoto.src = 'assets/julia-portrait-seated.jpg';
+  finalPhoto.removeAttribute('srcset'); finalPhoto.removeAttribute('sizes');
+  finalPhoto.alt = 'Юлия Ермолова';
+}
+document.querySelector('.added-pains .wrap')?.insertAdjacentHTML('beforeend', '<figure class="pains-photo"><img src="assets/julia-portrait-hand.jpg" alt="Юлия Ермолова" loading="lazy"></figure>');
 const addedSteps = document.querySelector('.added-steps');
 const about = document.querySelector('.about');
 if (about && addedSteps) about.insertAdjacentElement('afterend', addedSteps);
-addedSteps?.insertAdjacentHTML('afterend', `<section class="added-gallery" aria-label="Фотографии Юлии Ермоловой"><div class="wrap portrait-gallery"><figure class="portrait-gallery-wide"><img src="assets/julia-portrait-side.jpg" alt="Юлия Ермолова"></figure><figure><img src="assets/julia-portrait-hand.jpg" alt="Юлия Ермолова"></figure><figure><img src="assets/julia-portrait-seated.jpg" alt="Юлия Ермолова"></figure></div></section>`);
 const bonus = document.querySelector('.added-bonus');
 const faq = document.querySelector('.faq');
 if (bonus && faq) faq.insertAdjacentElement('afterend', bonus);
