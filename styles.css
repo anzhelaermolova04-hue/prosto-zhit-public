@@ -529,3 +529,10 @@ h1,h2,h3,.hero h1,.about-personal h3,.added-closing,.steps-list strong,.question
 .brand-masthead a{display:block;width:178px;max-width:100%}
 .brand-masthead img{display:block;width:100%;height:auto;filter:none;mix-blend-mode:normal}
 @media(max-width:700px){.brand-masthead{padding:12px 20px}.brand-masthead a{width:170px}}
+
+.brand-masthead{padding:10px 24px;background:var(--ink);border-bottom:1px solid #b9955d80}
+.brand-masthead a{display:flex;align-items:center;justify-content:center;gap:14px;width:390px;max-width:100%}
+.brand-masthead .masthead-bird{width:68px;height:68px;flex:0 0 68px;object-fit:contain}
+.masthead-wordmark{display:block;position:relative;flex:1;min-width:0;aspect-ratio:2172/400;overflow:hidden}
+.brand-masthead .masthead-wordmark img{position:absolute;top:50%;left:0;width:100%;height:auto;transform:translateY(-50%)}
+@media(max-width:700px){.brand-masthead{padding:9px 20px}.brand-masthead a{width:360px;gap:10px}.brand-masthead .masthead-bird{width:60px;height:60px;flex-basis:60px}}
