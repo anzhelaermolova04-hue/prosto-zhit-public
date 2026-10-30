@@ -437,3 +437,47 @@ body{background:#f5f8f8;color:#45565d}h1,h2,h3{color:#3e6875}.hero{background:ra
 .about-photo figcaption{margin-top:-4%;position:relative;z-index:2}
 .about-photo figcaption{display:none}
 @media(max-width:700px){.pains-photo{width:min(100%,340px)}.portrait-blend:after{right:-9%;width:38%;opacity:.6}}
+
+
+/* Beige, espresso, burgundy and antique gold. */
+:root{--cream:#f7efe5;--rose:#efdfd5;--burgundy:#741e32;--ink:#291c17;--blue:#741e32;--gold:#b9955d;--button:#741e32}
+body{background:var(--cream);color:var(--ink)}
+h1,h2,h3,.hero h1,.about-personal h3,.added-closing,.steps-list strong,.question h3{color:var(--burgundy)}
+.hero{background:radial-gradient(ellipse at 34% 20%,#fffaf3 0%,#f7efe5 52%,#ebdacb 100%)}
+.hero .eyebrow,.hero-body,.hero-body .aside,.hero .hero-facts,.hero-fact .fact-detail{color:var(--ink)}
+.hero .hero-body .hero-emphasis,.hero-fact:last-child,.hero-fact>svg,.hero .brand .brand-tagline{color:var(--burgundy)}
+.hero-fact>svg{background:radial-gradient(circle,#edd9ca,#ddc5a755)}
+.hero-arc,.condition,.service-title,.about-personal{border-color:#b9955d99}
+.hero-wave path[fill="#efd7cf"],.section-wave path[fill="#efd7cf"]{fill:#ead6c7}
+.hero-wave path[fill="#fcf6f0"],.section-wave path[fill="#fcf6f0"]{fill:var(--cream)}
+.hero-wave path[stroke],.section-wave path[stroke]{stroke:#b9955d}
+.cta,.hero .cta,.qz-btn{background:linear-gradient(165deg,#925165 0%,#741e32 55%,#5e192a 100%);color:#fffaf3;box-shadow:inset 0 1px 0 #ffffff60,inset 0 -4px 14px #42131d25,0 0 0 3px #fff8ef,0 0 0 4px #b9955d,0 9px 22px #602a241b}
+.cta:hover,.hero .cta:hover,.qz-btn:hover{background:linear-gradient(165deg,#7d344b,#541426)}
+.added-pains{background:radial-gradient(ellipse at 80% 10%,#ead5c5,transparent 54%),var(--cream)}
+.added-steps{background:radial-gradient(ellipse at 12% 70%,#e9d9c3,transparent 55%),#faf3ea}
+.added-bonus{background:radial-gradient(ellipse at 85% 20%,#ecd8cf,transparent 48%),radial-gradient(ellipse at 8% 90%,#e6d4b9,transparent 55%),var(--cream)}
+.about{background:radial-gradient(ellipse at 72% 62%,#e8d3c099,transparent 55%),var(--cream)}
+.session{background:radial-gradient(ellipse at 4% 40%,#e8d4c090,transparent 55%),linear-gradient(115deg,#fcf5ec,#f1e4d5)}
+.certificate{background:radial-gradient(ellipse at 80% 40%,#fffaf3,#eddfcd);border-color:#d8bd99}
+.faq{background:radial-gradient(ellipse at 15% 70%,#eadcc9,transparent 55%),var(--cream)}
+.final{background:radial-gradient(ellipse at 40% 0,#fffaf3,#ebdacb)}
+.pain-list p,.story,.question,.steps-list li{background:linear-gradient(140deg,#fffaf3,#f1e5d7);border-color:#d5b88d;box-shadow:inset 0 0 0 5px #ffffff40,0 8px 22px #6b3b200d;color:var(--ink)}
+.steps-list li:before,.section-label,.hint-icon,.round{color:var(--burgundy)}
+.about-personal blockquote{background:#efdfd2;border-color:#b9955d;color:var(--ink)}
+.qz{--gold:#b9955d;--teal:#741e32;--card:#fff8ef;--bg:#fffaf5;--text:#291c17;--muted:#665044;background:linear-gradient(145deg,#fffaf3,#efdfd1);border-color:#c3a06f;box-shadow:inset 0 0 0 6px #ffffff65,0 14px 35px #63361f16}
+.qz h3{color:var(--burgundy)}.qz h3 small,.qz-form label,.qz-form>p,.qz-done p{color:#594236}
+.qz-fill{background:linear-gradient(90deg,#c6a56b,#741e32)}
+.qz-opt,.qz-deliv-opt{background:#fffaf3cc;border-color:#c9ae89;color:var(--ink)}
+.qz-opt:hover,.qz-opt.sel,.qz-deliv-opt.sel{border-color:var(--burgundy);background:#efdbd6;color:var(--burgundy)}
+.qz-form input{background:#fffaf5;border-color:#bda17d;color:var(--ink)}
+.qz-form input:focus{outline-color:var(--burgundy)}
+#booking-dialog{background:radial-gradient(ellipse at 45% 28%,#fffaf3 15%,#efdfd0 100%);border-color:#b9955d;box-shadow:0 18px 65px #42221730}
+#booking-dialog>p:not(.booking-privacy),footer,.footer-email,.footer-documents>a,.legal-back{color:var(--ink)}
+#booking-dialog .booking-contacts .messenger-link,.messenger-link{background:linear-gradient(135deg,#fffaf3,#efdfce);border-color:#b9955d;color:var(--burgundy)}
+.site-footer{background:#f0e3d3;color:var(--ink)}
+.hero-leaves,.section-leaves,.page-botanical,.portrait-blend:after,.booking-leaves,.qz:before,.qz:after{filter:sepia(.95) saturate(1.15) hue-rotate(335deg) brightness(.84)}
+.portrait-blend:before,.hero-copy:before,.booking-feather{filter:sepia(1) saturate(.85) brightness(.8)}
+.page-botanical-left,.section-leaves-left{filter:sepia(1) saturate(.9) brightness(.83)}
+::selection{background:#741e32;color:#fffaf3}
+.hero .brand img,.final .closing-copy>img,.booking-mark img{filter:sepia(1) saturate(1.15) hue-rotate(330deg) brightness(.7)}
+.hero .brand span,.about-photo figcaption span{color:var(--burgundy)}
