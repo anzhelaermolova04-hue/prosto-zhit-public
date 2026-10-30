@@ -118,7 +118,7 @@ if (finalPhoto) {
   finalPhoto.removeAttribute('srcset'); finalPhoto.removeAttribute('sizes');
   finalPhoto.alt = 'Юлия Ермолова';
 }
-document.querySelector('.added-pains .wrap')?.insertAdjacentHTML('beforeend', '<figure class="pains-photo"><img src="assets/julia-portrait-camera.jpg" alt="Юлия Ермолова" loading="lazy"></figure>');
+document.querySelector('.added-pains .wrap')?.insertAdjacentHTML('beforeend', '<figure class="pains-photo"><img src="assets/session-client-vertical.jpg" alt="Юлия Ермолова проводит сеанс Access Bars" loading="lazy"></figure>');
 const addedSteps = document.querySelector('.added-steps');
 const about = document.querySelector('.about');
 if (about && addedSteps) about.insertAdjacentElement('afterend', addedSteps);
