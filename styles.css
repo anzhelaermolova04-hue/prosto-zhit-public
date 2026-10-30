@@ -506,3 +506,4 @@ h1,h2,h3,.hero h1,.about-personal h3,.added-closing,.steps-list strong,.question
 .page-botanical-left:after{animation-delay:-4s}
 @keyframes divider-sway{from{transform:translate(-3px,1px) rotate(61deg)}to{transform:translate(3px,-1px) rotate(69deg)}}
 @media(prefers-reduced-motion:reduce){.page-botanical:after{animation:none}}
+.about .split{grid-template-columns:minmax(0,1fr);gap:0}.about .split>div{width:100%;max-width:860px;margin-inline:auto}.about-personal>.about-photo{width:min(100%,440px);max-width:440px;margin:0 auto 30px}

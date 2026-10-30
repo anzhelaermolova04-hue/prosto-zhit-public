@@ -237,3 +237,6 @@ const heroDivider = document.createElement('span');
 heroDivider.className = 'page-botanical page-botanical-right';
 heroDivider.setAttribute('aria-hidden', 'true');
 document.querySelector('.hero')?.after(heroDivider);
+const personalBlock = document.querySelector('.about-personal');
+const personalPhoto = document.querySelector('.about-photo');
+if (personalBlock && personalPhoto) personalBlock.prepend(personalPhoto);
