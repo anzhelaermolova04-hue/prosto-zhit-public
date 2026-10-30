@@ -150,8 +150,6 @@ if (aboutParagraphs?.length >= 6) {
 }
 const personalParagraphs = document.querySelectorAll('.about-personal > p:not(.section-label)');
 if (personalParagraphs[0]) personalParagraphs[0].textContent = personalParagraphs[0].textContent.replace('Меня зовут Юля.', 'Меня зовут Юлия.');
-if (personalParagraphs[3]) personalParagraphs[3].textContent = 'Про технику. Access Bars — это практика мягких прикосновений к 32 точкам на голове. Во время сеанса ты можешь просто лежать и замечать свои ощущения. У каждого опыт свой.';
-if (personalParagraphs[4]) personalParagraphs[4].textContent = '«Жить в лёгкости, радости и великолепии» — звучит пафосно, знаю. Для меня это про возможность выдохнуть и посмотреть на привычные вещи по-новому. Что почувствуешь ты — узнаешь из собственного опыта.';
 const firstStep = document.querySelector('.added-steps .steps-list li:first-child');
 if (firstStep) {
   firstStep.querySelector('strong').textContent = 'Договариваемся в переписке';
