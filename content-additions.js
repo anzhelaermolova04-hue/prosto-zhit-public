@@ -74,7 +74,7 @@ if (quiz) {
       });
       return;
     }
-    const message = `Юль, я прошла квиз. Меня зовут ${target.dataset.name}. Пришли, пожалуйста, сертификат в ${target.dataset.delivery === 'max' ? 'MAX' : 'WhatsApp'} по номеру: ${target.dataset.contact}`;
+    const message = `Юлия, я прошла квиз. Меня зовут ${target.dataset.name}. Пришли, пожалуйста, сертификат в ${target.dataset.delivery === 'max' ? 'MAX' : 'WhatsApp'} по номеру: ${target.dataset.contact}`;
     if (target.dataset.delivery === 'max') {
       navigator.clipboard?.writeText(message).catch(() => {});
       window.open('https://max.ru/u/f9LHodD0cOL5aLSzYDBotzUH5e8lNNIxes0kPNpu0vthLGxybMEYItW7y1I', '_blank', 'noopener');
@@ -131,3 +131,50 @@ document.querySelectorAll('.added-pains, .about, .added-steps, .session, .certif
   ornament.setAttribute('aria-hidden', 'true');
   section.prepend(ornament);
 });
+
+// Agreed copy revisions.
+heroLead.textContent = 'Тебе не нужно ничего объяснять, вспоминать и делать правильно.';
+if (heroDescription) heroDescription.textContent = 'Ты располагаешься на кушетке, а я провожу сеанс. Не нужно снова пересказывать прошлое, искать причины и выполнять домашние задания.';
+const aboutCopy = document.querySelector('.about .split > div:first-child');
+const aboutParagraphs = aboutCopy?.querySelectorAll(':scope > p');
+const aboutText = [
+  'Меня зовут Юлия Ермолова. Я практик Access Bars и лично провожу сеансы.',
+  'Перед началом немного поговорим. Можешь рассказать, что тебя привело и что хотелось бы изменить. Если не знаешь, как это объяснить, — ничего страшного. Подготовленная речь и презентация на двадцать слайдов не нужны.',
+  'Потом ты устраиваешься на кушетке — прямо в одежде. Я мягко касаюсь определённых точек на голове.',
+  'Можешь говорить или молчать. Можешь уснуть или не уснуть. Специально расслабляться, искать правильные ощущения и срочно ловить озарение не требуется.',
+  'Если что-то некомфортно — скажи мне. Мы изменим прикосновение или остановимся.'
+];
+if (aboutParagraphs?.length >= 6) {
+  aboutText.forEach((text, index) => { aboutParagraphs[index].textContent = text; });
+  aboutParagraphs[5].remove();
+}
+const personalParagraphs = document.querySelectorAll('.about-personal > p:not(.section-label)');
+if (personalParagraphs[0]) personalParagraphs[0].textContent = personalParagraphs[0].textContent.replace('Меня зовут Юля.', 'Меня зовут Юлия.');
+if (personalParagraphs[3]) personalParagraphs[3].textContent = 'Про технику. Access Bars — это практика мягких прикосновений к 32 точкам на голове. Во время сеанса ты можешь просто лежать и замечать свои ощущения. У каждого опыт свой.';
+if (personalParagraphs[4]) personalParagraphs[4].textContent = '«Жить в лёгкости, радости и великолепии» — звучит пафосно, знаю. Для меня это про возможность выдохнуть и посмотреть на привычные вещи по-новому. Что почувствуешь ты — узнаешь из собственного опыта.';
+const firstStep = document.querySelector('.added-steps .steps-list li:first-child');
+if (firstStep) {
+  firstStep.querySelector('strong').textContent = 'Договариваемся в переписке';
+  firstStep.querySelector('span').textContent = 'Ты оставляешь заявку, и я пишу тебе в ответ. Обсуждаем удобные день и время, я подбираю кабинет в центре Москвы. Когда место подтверждено, согласовываем встречу.';
+}
+const thirdStepText = document.querySelector('.added-steps .steps-list li:nth-child(3) span');
+if (thirdStepText) thirdStepText.textContent = 'Я мягко касаюсь точек на голове. Если возникнут вопросы или захочется сделать паузу — просто скажи мне.';
+const sessionHeading = document.querySelector('.session h2');
+if (sessionHeading) sessionHeading.innerHTML = '<span>Начни с одного сеанса.</span> <span>Дальше — по твоим ощущениям.</span>';
+const sessionConditions = document.querySelectorAll('.session .condition');
+if (sessionConditions[2]) sessionConditions[2].textContent = 'Одной встречи может быть недостаточно. Количество сеансов индивидуально: после первого мы обсудим твои ощущения и решим, как двигаться дальше. Покупать курс заранее не нужно.';
+const faqItems = document.querySelectorAll('.faq-grid .question');
+const faqAnswers = [
+  'Специальные знания не нужны. Перед началом я расскажу, как проходит сеанс, и отвечу на вопросы.',
+  'Ты сама выбираешь, чем делиться. Подробную историю жизни рассказывать не обязательно.',
+  'Тебе не нужно добиваться определённого состояния. Скажи мне, как ты себя чувствуешь, — вместе найдём, как сделать встречу комфортнее.',
+  'У каждого свой опыт, поэтому заранее предсказать изменения я не могу. Одинаковый результат после одной встречи не обещаю.',
+  'Напиши мне в удобный мессенджер. Мы обсудим время и подберём кабинет в центре Москвы. Созваниваться не нужно.'
+];
+faqAnswers.forEach((answer, index) => { const p = faqItems[index]?.querySelector('.answer p'); if (p) p.textContent = answer; });
+const countFaq = [...faqItems].find(item => item.querySelector('h3')?.textContent.includes('Сколько сеансов'));
+if (countFaq) countFaq.querySelector('.answer p').textContent = 'Это индивидуально: одной встречи может быть недостаточно. После первого сеанса обсудим твои ощущения и решим, как двигаться дальше. Покупать курс заранее не нужно.';
+const bookingTitle = document.querySelector('#booking-title');
+if (bookingTitle) bookingTitle.textContent = 'Выбери мессенджер';
+const bookingIntro = document.querySelector('#booking-dialog > p:not(.booking-privacy)');
+if (bookingIntro) bookingIntro.textContent = 'Напиши мне, чтобы согласовать день и время сеанса.';
