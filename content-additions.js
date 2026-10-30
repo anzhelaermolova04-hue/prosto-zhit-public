@@ -40,13 +40,13 @@ if (quiz) {
       const context = canvas.getContext('2d');
       if (source) context.drawImage(source, 0, 0);
       else { context.fillStyle = '#f6e5df'; context.fillRect(0, 0, canvas.width, canvas.height); context.strokeStyle = '#c9a961'; context.lineWidth = 8; context.strokeRect(35, 35, canvas.width - 70, canvas.height - 70); context.fillStyle = '#426777'; context.font = '72px Georgia'; context.textAlign = 'center'; context.fillText('РАЗРЕШЕНИЕ', canvas.width / 2, 230); context.font = '42px Georgia'; context.fillText('ничего не делать', canvas.width / 2, 310); }
-      context.font = `600 ${Math.round(canvas.width * .072)}px Cormorant Garamond, Georgia, serif`;
+      context.font = `600 ${Math.round(canvas.width * .055)}px Cormorant Garamond, Georgia, serif`;
       context.fillStyle = '#7a2230'; context.textAlign = 'center'; context.textBaseline = 'middle';
       context.fillText(name, canvas.width * .5, canvas.height * .4);
       complete(canvas.toDataURL('image/png'));
     };
     image.onload = () => paint(image); image.onerror = () => paint();
-    image.src = 'https://i.ibb.co/S4sXPx5R/Chat-GPT-29-2026-03-39-26.png';
+    image.src = 'assets/permission-certificate.jpg';
   };
   quiz.addEventListener('click', event => {
     const target = event.target.closest('.qz-cert-request, .qz-delivery-link');
