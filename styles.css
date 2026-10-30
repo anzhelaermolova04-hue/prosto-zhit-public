@@ -481,3 +481,16 @@ h1,h2,h3,.hero h1,.about-personal h3,.added-closing,.steps-list strong,.question
 ::selection{background:#741e32;color:#fffaf3}
 .hero .brand img,.final .closing-copy>img,.booking-mark img{filter:sepia(1) saturate(1.15) hue-rotate(330deg) brightness(.7)}
 .hero .brand span,.about-photo figcaption span{color:var(--burgundy)}
+
+
+.section-booking{margin-top:34px;max-width:700px}
+.section-booking>p,.booking-context{font-size:17px;line-height:1.65;max-width:600px;color:var(--ink)}
+.section-booking .cta{margin-top:24px;min-width:290px;max-width:100%}
+.about-personal+.section-booking{margin-top:30px}
+.certificate-grid>.section-booking{grid-column:1/-1;margin:0 auto;text-align:center}
+.certificate-grid>.section-booking p{margin-inline:auto}
+.faq .section-booking,.added-bonus .section-booking{margin:42px auto 0;text-align:center}
+.faq .section-booking p,.added-bonus .section-booking p{margin-inline:auto}
+.session .booking-context,.final .booking-context{margin-top:28px}
+.final .booking-context{margin-bottom:24px}
+@media(max-width:700px){.section-booking{margin-top:28px}.section-booking .cta{width:100%;min-width:0;font-size:16px}.certificate-grid>.section-booking,.faq .section-booking,.added-bonus .section-booking{text-align:left}.section-booking>p,.booking-context{font-size:16px}}

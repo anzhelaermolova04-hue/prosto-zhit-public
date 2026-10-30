@@ -182,3 +182,48 @@ document.querySelectorAll('.hero-photo img, .pains-photo img, .about-photo img, 
   img.replaceWith(blend);
   blend.append(img);
 });
+
+
+// Each section gives a reason to book and opens the same messenger chooser.
+document.querySelectorAll('[data-booking]').forEach(button => {
+  button.innerHTML = 'Записаться на сеанс <span aria-hidden="true">→</span>';
+});
+function sectionBooking(text) {
+  const block = document.createElement('div');
+  block.className = 'section-booking';
+  const copy = document.createElement('p');
+  copy.textContent = text;
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'cta';
+  button.dataset.booking = '';
+  button.innerHTML = 'Записаться на сеанс <span aria-hidden="true">→</span>';
+  button.addEventListener('click', () => {
+    const dialog = document.querySelector('#booking-dialog');
+    if (typeof openDialog === 'function') openDialog(dialog, button);
+    else if (dialog && !dialog.open) dialog.showModal();
+  });
+  block.append(copy, button);
+  return block;
+}
+document.querySelector('.added-closing')?.after(sectionBooking('Узнала себя? Приходи попробовать другой формат: на сеансе работаю я, а у тебя на эти 45–60 минут другие планы — полежать.'));
+document.querySelector('.about-personal')?.before(sectionBooking('Здесь не нужно быть прилежной ученицей. Если такой формат тебе ближе, давай договоримся о встрече.'));
+document.querySelector('.about-personal')?.append(sectionBooking('Я сначала попробовала этот подход на себе. Теперь ты можешь прийти ко мне и составить собственное впечатление.'));
+document.querySelector('.added-steps .wrap')?.append(sectionBooking('Всё начинается с сообщения. Напиши, когда тебе удобно, — я подберу кабинет и согласую с тобой встречу. Без предварительного собеседования.'));
+const sessionButton = document.querySelector('.session [data-booking]');
+if (sessionButton) {
+  const text = document.createElement('p');
+  text.className = 'booking-context';
+  text.textContent = 'Хочешь понять, подходит ли тебе этот формат? Давай выберем время для первой встречи — так у тебя будет собственный опыт, а не ещё одна теория.';
+  sessionButton.before(text);
+}
+document.querySelector('.certificate-grid')?.append(sectionBooking('Обучение я прошла. Лично работать с тобой тоже буду я. Если хочешь познакомиться с практикой, приходи на сеанс.'));
+document.querySelector('.faq > .wrap')?.append(sectionBooking('Остались вопросы? Напиши мне — отвечу и помогу выбрать время. Знать об Access Bars всё до первой встречи необязательно.'));
+document.querySelector('.added-bonus > .wrap')?.append(sectionBooking('Сертификат можно оставить себе. А если хочется выделить время на настоящую паузу — приходи на сеанс. Здесь можно пойти дальше слов и действительно дать себе отдохнуть.'));
+const finalButton = document.querySelector('.final [data-booking]');
+if (finalButton) {
+  const text = document.createElement('p');
+  text.className = 'booking-context';
+  text.textContent = 'Если всё время находится что-то важнее твоего отдыха, давай выберем время для тебя. День и место согласуем в переписке.';
+  finalButton.before(text);
+}
