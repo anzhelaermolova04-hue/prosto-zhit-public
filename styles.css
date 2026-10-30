@@ -536,3 +536,5 @@ h1,h2,h3,.hero h1,.about-personal h3,.added-closing,.steps-list strong,.question
 .masthead-wordmark{display:block;position:relative;flex:1;min-width:0;aspect-ratio:2172/400;overflow:hidden}
 .brand-masthead .masthead-wordmark img{position:absolute;top:50%;left:0;width:100%;height:auto;transform:translateY(-50%)}
 @media(max-width:700px){.brand-masthead{padding:9px 20px}.brand-masthead a{width:360px;gap:10px}.brand-masthead .masthead-bird{width:60px;height:60px;flex-basis:60px}}
+.brand-masthead{position:relative;background:var(--cream);border-bottom:0}
+.brand-masthead:after{content:'';position:absolute;left:6%;right:6%;bottom:0;height:1px;background:linear-gradient(90deg,transparent,#b9955d 22%,#741e32 50%,#b9955d 78%,transparent)}

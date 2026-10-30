@@ -241,7 +241,7 @@ if (sessionConditions[1]) sessionConditions[1].textContent = 'Отдельный
 
 const masthead = document.createElement('header');
 masthead.className = 'brand-masthead';
-masthead.innerHTML = '<a href="#main-content" aria-label="Просто жить — к началу сайта"><img class="masthead-bird" src="assets/brand-bird-gold.png" alt="" width="1254" height="1254" decoding="async" fetchpriority="high"><span class="masthead-wordmark"><img src="assets/brand-wordmark-gold.png" alt="Просто жить — больше возможностей" width="2172" height="724" decoding="async" fetchpriority="high"></span></a>';
+masthead.innerHTML = '<a href="#main-content" aria-label="Просто жить — к началу сайта"><img class="masthead-bird" src="assets/brand-bird-burgundy.png" alt="" width="1254" height="1254" decoding="async" fetchpriority="high"><span class="masthead-wordmark"><img src="assets/brand-wordmark-burgundy.png" alt="Просто жить — больше возможностей" width="2172" height="724" decoding="async" fetchpriority="high"></span></a>';
 document.querySelector('main')?.setAttribute('id', 'main-content');
 document.body.prepend(masthead);
 document.querySelector('.hero .brand')?.remove();
