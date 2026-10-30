@@ -228,3 +228,12 @@ if (finalButton) {
   text.textContent = 'Если всё время находится что-то важнее твоего отдыха, давай выберем время для тебя. День и место согласуем в переписке.';
   finalButton.before(text);
 }
+
+document.querySelectorAll('.page-botanical').forEach(ornament => {
+  const section = ornament.parentElement;
+  section.after(ornament);
+});
+const heroDivider = document.createElement('span');
+heroDivider.className = 'page-botanical page-botanical-right';
+heroDivider.setAttribute('aria-hidden', 'true');
+document.querySelector('.hero')?.after(heroDivider);

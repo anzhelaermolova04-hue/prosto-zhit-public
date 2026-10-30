@@ -496,3 +496,13 @@ h1,h2,h3,.hero h1,.about-personal h3,.added-closing,.steps-list strong,.question
 .session .booking-context,.final .booking-context{margin-top:28px}
 .final .booking-context{margin-bottom:24px}
 @media(max-width:700px){.section-booking{margin-top:28px}.section-booking .cta{width:100%;min-width:0;font-size:16px}.certificate-grid>.section-booking,.faq .section-booking,.added-bonus .section-booking{text-align:left}.section-booking>p,.booking-context{font-size:16px}}
+
+
+/* Botanical ornaments live between sections, clear of photographs and text. */
+.portrait-blend:before,.portrait-blend:after,.hero-leaves,.section-leaves,.about:before,.hero-copy:before{display:none}
+.page-botanical,.page-botanical-left,.page-botanical-right{display:block;position:relative;inset:auto;top:auto;bottom:auto;left:auto;right:auto;width:min(420px,100%);height:86px;margin:0 auto;background:none;filter:none;mask-image:none;mix-blend-mode:normal;transform:none;opacity:1;z-index:0;pointer-events:none}
+.page-botanical:before{content:'';position:absolute;left:8%;right:8%;top:50%;height:1px;background:linear-gradient(to right,transparent,#b9955d70 25%,#b9955d70 75%,transparent)}
+.page-botanical:after{content:'';position:absolute;left:calc(50% - 35px);top:-24px;width:70px;height:130px;background:url('assets/branch-115.webp') center/contain no-repeat;filter:sepia(1) saturate(.9) brightness(.8);opacity:.6;transform:rotate(65deg);animation:divider-sway 9s ease-in-out infinite alternate}
+.page-botanical-left:after{animation-delay:-4s}
+@keyframes divider-sway{from{transform:translate(-3px,1px) rotate(61deg)}to{transform:translate(3px,-1px) rotate(69deg)}}
+@media(prefers-reduced-motion:reduce){.page-botanical:after{animation:none}}
