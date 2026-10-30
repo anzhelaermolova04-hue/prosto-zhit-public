@@ -85,9 +85,15 @@ if (heroLead) {
 const heroDescription = document.querySelector('.hero-body p:not(.lead):not(.aside)');
 if (heroDescription) heroDescription.textContent = 'Вы располагаетесь на кушетке. А Я провожу сеанс. Вам не нужно снова пересказывать прошлое, искать причины и выполнять домашние задания.';
 document.querySelector('.hero-body .aside')?.remove();
+const heroPhoto = document.querySelector('.hero-photo img');
+if (heroPhoto) {
+  heroPhoto.src = 'assets/hero-julia.jpg';
+  heroPhoto.removeAttribute('srcset'); heroPhoto.removeAttribute('sizes');
+  heroPhoto.alt = 'Юлия Ермолова, практик Access Bars';
+}
 const aboutPhoto = document.querySelector('.about-photo img');
 if (aboutPhoto) {
-  aboutPhoto.src = 'assets/session-with-client.jpg';
+  aboutPhoto.src = 'assets/session-julia.jpg';
   aboutPhoto.removeAttribute('srcset'); aboutPhoto.removeAttribute('sizes');
   aboutPhoto.alt = 'Юлия Ермолова проводит индивидуальный сеанс Access Bars';
 }
@@ -98,6 +104,7 @@ document.querySelector('.final .closing-copy')?.insertAdjacentHTML('afterbegin',
 const addedSteps = document.querySelector('.added-steps');
 const about = document.querySelector('.about');
 if (about && addedSteps) about.insertAdjacentElement('afterend', addedSteps);
+addedSteps?.insertAdjacentHTML('afterend', `<section class="added-gallery" aria-label="Фотографии Юлии Ермоловой"><div class="wrap portrait-gallery"><figure class="portrait-gallery-wide"><img src="assets/julia-portrait-side.jpg" alt="Юлия Ермолова"></figure><figure><img src="assets/julia-portrait-hand.jpg" alt="Юлия Ермолова"></figure><figure><img src="assets/julia-portrait-seated.jpg" alt="Юлия Ермолова"></figure></div></section>`);
 const bonus = document.querySelector('.added-bonus');
 const faq = document.querySelector('.faq');
 if (bonus && faq) faq.insertAdjacentElement('afterend', bonus);
