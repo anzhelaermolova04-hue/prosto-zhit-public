@@ -420,3 +420,11 @@ body{background:#f5f8f8;color:#45565d}h1,h2,h3{color:#3e6875}.hero{background:ra
 .about-photo figcaption{background:transparent;border:0;padding-top:8px}.about-photo figcaption:before,.about-photo figcaption:after{content:none}
 .final .photo{display:none}.final-grid{grid-template-columns:minmax(0,1fr)}.final .closing-copy{max-width:760px}
 .certificate-photo-view{display:block;position:relative;width:100%;aspect-ratio:1280/952;overflow:hidden}.certificate-button .certificate-photo-view img,#certificate-dialog .certificate-photo-view img{position:absolute;width:74.375%;height:auto;max-width:none;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-90deg)}
+
+/* Airy botanical details across the landing page. */
+.added-pains,.about,.added-steps,.session,.certificate,.faq,.added-bonus,.final{position:relative;isolation:isolate;overflow:hidden}
+.page-botanical{position:absolute;z-index:0;pointer-events:none;top:12%;width:clamp(150px,22vw,310px);height:clamp(300px,37vw,520px);background:url('assets/botanical-425.webp') center/contain no-repeat;mix-blend-mode:multiply;opacity:.38;mask-image:radial-gradient(ellipse at center,#000 20%,transparent 72%)}
+.page-botanical-right{right:-80px;transform:rotate(175deg)}.page-botanical-left{left:-100px;transform:rotate(-12deg)}
+.added-pains>.wrap,.about>.wrap,.added-steps>.wrap,.session>.wrap,.certificate>.wrap,.faq>.wrap,.added-bonus>.wrap,.final>.wrap{position:relative;z-index:1}
+.pains-photo img,.about-photo img,.session-photo img{mask-image:radial-gradient(ellipse 55% 60% at 50% 50%,#000 60%,transparent 100%);mask-composite:add}
+@media(max-width:700px){.page-botanical{width:165px;height:330px;opacity:.3;top:8%}.page-botanical-left{left:-92px}.page-botanical-right{right:-85px}}

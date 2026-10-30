@@ -125,3 +125,9 @@ if (about && addedSteps) about.insertAdjacentElement('afterend', addedSteps);
 const bonus = document.querySelector('.added-bonus');
 const faq = document.querySelector('.faq');
 if (bonus && faq) faq.insertAdjacentElement('afterend', bonus);
+document.querySelectorAll('.added-pains, .about, .added-steps, .session, .certificate, .faq, .added-bonus, .final').forEach((section, index) => {
+  const ornament = document.createElement('span');
+  ornament.className = `page-botanical ${index % 2 ? 'page-botanical-left' : 'page-botanical-right'}`;
+  ornament.setAttribute('aria-hidden', 'true');
+  section.prepend(ornament);
+});
