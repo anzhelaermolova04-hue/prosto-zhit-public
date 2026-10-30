@@ -518,3 +518,8 @@ h1,h2,h3,.hero h1,.about-personal h3,.added-closing,.steps-list strong,.question
 .booking-terms>span{display:block;margin-top:5px;font-size:15px;line-height:1.55}
 .certificate-grid .booking-terms,.faq .booking-terms,.added-bonus .booking-terms{margin-inline:auto}
 @media(max-width:700px){.booking-terms strong{font-size:23px}.booking-terms>span{font-size:14px}.hero .hero-facts .hero-offer-details{font-size:15px}}
+
+/* Transparent vector ornaments only: no rectangular bitmap backdrops. */
+.portrait-blend:before,.portrait-blend:after,.hero .hero-photo:after,.qz:before,.qz:after,.question:after,.story:before,.story:after,.booking-leaves,.booking-feather{content:none;background:none;display:none}
+.page-botanical:after{left:calc(50% - 90px);top:16px;width:180px;height:54px;background:url('assets/branch-divider.svg') center/contain no-repeat;filter:none;opacity:.85;transform:none}
+@keyframes divider-sway{from{transform:translate(-2px,1px) rotate(-2deg)}to{transform:translate(2px,-1px) rotate(2deg)}}
