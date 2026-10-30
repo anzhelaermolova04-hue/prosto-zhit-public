@@ -125,12 +125,6 @@ if (about && addedSteps) about.insertAdjacentElement('afterend', addedSteps);
 const bonus = document.querySelector('.added-bonus');
 const faq = document.querySelector('.faq');
 if (bonus && faq) faq.insertAdjacentElement('afterend', bonus);
-document.querySelectorAll('.added-pains, .about, .added-steps, .session, .certificate, .faq, .added-bonus, .final').forEach((section, index) => {
-  const ornament = document.createElement('span');
-  ornament.className = `page-botanical ${index % 2 ? 'page-botanical-left' : 'page-botanical-right'}`;
-  ornament.setAttribute('aria-hidden', 'true');
-  section.prepend(ornament);
-});
 
 // Agreed copy revisions.
 heroLead.textContent = 'Тебе не нужно ничего объяснять, вспоминать и делать правильно.';
@@ -229,14 +223,6 @@ if (finalButton) {
   finalButton.before(text);
 }
 
-document.querySelectorAll('.page-botanical').forEach(ornament => {
-  const section = ornament.parentElement;
-  section.after(ornament);
-});
-const heroDivider = document.createElement('span');
-heroDivider.className = 'page-botanical page-botanical-right';
-heroDivider.setAttribute('aria-hidden', 'true');
-document.querySelector('.hero')?.after(heroDivider);
 const personalBlock = document.querySelector('.about-personal');
 const personalPhoto = document.querySelector('.about-photo');
 if (personalBlock && personalPhoto) personalBlock.prepend(personalPhoto);
