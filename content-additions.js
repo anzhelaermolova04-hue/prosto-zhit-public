@@ -8,8 +8,8 @@ const content = `
 <div class="qz-step" data-q="3"><h3>Ты ходила к психологу?</h3><div class="qz-opts"><button class="qz-opt">Нет, мне нечего там делать</button><button class="qz-opt">Да, помогло</button><button class="qz-opt">Хожу до сих пор. Лучше, но с «но»</button><button class="qz-opt">Да. Дал домашнее задание. Не сделала. Чувствую вину</button><button class="qz-opt">Я сама психолог. Ко мне тоже ходят. И я устала</button></div></div>
 <div class="qz-step" data-q="4"><h3>Что тебе ближе?</h3><div class="qz-opts"><button class="qz-opt">«Я сама разберусь»</button><button class="qz-opt">«Помогите мне разобраться»</button><button class="qz-opt">«Не хочу больше разбираться. Пусть само как-то»</button><button class="qz-opt">«Оставьте меня в покое»</button></div></div>
 <div class="qz-step" data-q="5"><h3>А теперь честно — чего ты хочешь?<small>(этот вопрос от меня лично)</small></h3><div class="qz-opts"><button class="qz-opt">Чтобы кто-то наконец сказал, что со мной всё ок</button><button class="qz-opt">Чтобы перестало крутить в голове</button><button class="qz-opt">Чтобы меня оставили в покое — все, включая меня саму</button><button class="qz-opt">Не знаю. Поэтому и здесь</button></div></div>
-<div class="qz-form"><h3>Куда прислать сертификат?</h3><label>Как тебя зовут<input class="qz-name" placeholder="Твоё имя" autocomplete="given-name"></label><p>Выбери мессенджер</p><div class="qz-deliv"><button class="qz-deliv-opt sel" data-delivery="whatsapp" type="button">WhatsApp</button><button class="qz-deliv-opt" data-delivery="max" type="button">MAX</button></div><label class="qz-contact-label">Номер WhatsApp<input class="qz-contact" placeholder="+7 999 000-00-00" inputmode="tel" autocomplete="tel"></label><p class="qz-error" role="alert" hidden>Укажи имя и контакт — туда я пришлю сертификат.</p><button class="qz-btn qz-cert-request" type="button">Получить сертификат</button></div>
-<div class="qz-done"><h3>Сертификат готов ✦</h3><p>Я подготовила его для тебя. Нажми кнопку, чтобы написать мне в выбранный мессенджер — я пришлю файл туда.</p><img class="qz-cert" alt="Сертификат с именем участника"><button class="qz-btn qz-delivery-link qz-booking" type="button"></button></div></div></div></section>`;
+<div class="qz-form"><h3>Куда прислать сертификат?</h3><label>Как тебя зовут<input class="qz-name" placeholder="Твоё имя" autocomplete="given-name"></label><p>Выбери мессенджер</p><div class="qz-deliv"><button class="qz-deliv-opt sel" data-delivery="whatsapp" type="button">WhatsApp</button><button class="qz-deliv-opt" data-delivery="max" type="button">MAX</button></div><label class="qz-contact-label">Номер телефона<input class="qz-contact" placeholder="+7 999 000-00-00" inputmode="tel" autocomplete="tel"></label><p class="qz-error" role="alert" hidden>Укажи имя и номер телефона.</p><button class="qz-btn qz-cert-request" type="button">Получить сертификат</button></div>
+<div class="qz-done"><h3>Сертификат готов ✦</h3><p>Нажми кнопку, чтобы написать мне. После сообщения я пришлю файл в выбранный мессенджер.</p><img class="qz-cert" alt="Сертификат с именем участника"><button class="qz-btn qz-delivery-link qz-booking" type="button"></button></div></div></div></section>`;
 document.querySelector('.about')?.insertAdjacentHTML('beforebegin', content);
 document.querySelector('.stories')?.remove();
 const quiz=document.querySelector('#qz-widget');
@@ -25,10 +25,8 @@ if (quiz) {
   const deliveryButton = quiz.querySelector('.qz-delivery-link');
   const selectedDelivery = () => quiz.querySelector('.qz-deliv-opt.sel')?.dataset.delivery;
   const updateContactLabel = () => {
-    const isMax = selectedDelivery() === 'max';
-    contactLabel.firstChild.textContent = isMax ? 'Имя или ссылка в MAX' : 'Номер WhatsApp';
-    contactInput.placeholder = isMax ? '@имя или ссылка на профиль' : '+7 999 000-00-00';
-    contactInput.inputMode = isMax ? 'text' : 'tel';
+    contactLabel.firstChild.textContent = 'Номер телефона';
+    contactInput.placeholder = '+7 999 000-00-00'; contactInput.inputMode = 'tel';
   };
   quiz.querySelectorAll('.qz-deliv-opt').forEach(button => button.addEventListener('click', updateContactLabel));
   updateContactLabel();
@@ -63,12 +61,12 @@ if (quiz) {
       makeCertificate(name, data => {
         quiz.querySelector('.qz-cert').src = data;
         quiz.querySelector('.qz-form').classList.remove('active'); quiz.querySelector('.qz-done').classList.add('active');
-        deliveryButton.textContent = selectedDelivery() === 'max' ? 'Открыть MAX →' : 'Написать в WhatsApp →';
+        deliveryButton.textContent = selectedDelivery() === 'max' ? 'Открыть MAX и вставить сообщение →' : 'Написать в WhatsApp →';
         deliveryButton.dataset.name = name; deliveryButton.dataset.contact = contact; deliveryButton.dataset.delivery = selectedDelivery();
       });
       return;
     }
-    const message = `Юль, я прошла квиз. Меня зовут ${target.dataset.name}. Пришли, пожалуйста, сертификат сюда: ${target.dataset.contact}`;
+    const message = `Юль, я прошла квиз. Меня зовут ${target.dataset.name}. Пришли, пожалуйста, сертификат в ${target.dataset.delivery === 'max' ? 'MAX' : 'WhatsApp'} по номеру: ${target.dataset.contact}`;
     if (target.dataset.delivery === 'max') {
       navigator.clipboard?.writeText(message).catch(() => {});
       window.open('https://max.ru/u/f9LHodD0cOL5aLSzYDBotzUH5e8lNNIxes0kPNpu0vthLGxybMEYItW7y1I', '_blank', 'noopener');
