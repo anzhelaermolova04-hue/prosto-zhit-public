@@ -428,3 +428,11 @@ body{background:#f5f8f8;color:#45565d}h1,h2,h3{color:#3e6875}.hero{background:ra
 .added-pains>.wrap,.about>.wrap,.added-steps>.wrap,.session>.wrap,.certificate>.wrap,.faq>.wrap,.added-bonus>.wrap,.final>.wrap{position:relative;z-index:1}
 .pains-photo img,.about-photo img,.session-photo img{mask-image:radial-gradient(ellipse 55% 60% at 50% 50%,#000 60%,transparent 100%);mask-composite:add}
 @media(max-width:700px){.page-botanical{width:165px;height:330px;opacity:.3;top:8%}.page-botanical-left{left:-92px}.page-botanical-right{right:-85px}}
+
+.portrait-blend{position:relative;isolation:isolate;width:100%}
+.hero .hero-photo .portrait-blend img,.portrait-blend img{display:block;width:100%;height:auto;opacity:1;mask-image:linear-gradient(to bottom,transparent 0%,#000 13%,#000 78%,transparent 100%),linear-gradient(to right,transparent 0%,#000 4%,#000 96%,transparent 100%);mask-composite:intersect}
+.portrait-blend:after{content:'';position:absolute;pointer-events:none;z-index:1;right:-12%;bottom:2%;width:40%;height:80%;background:url('assets/botanical-425.webp') center/contain no-repeat;mix-blend-mode:multiply;opacity:.72;mask-image:radial-gradient(ellipse,#000 25%,transparent 75%);transform:rotate(178deg)}
+.portrait-blend:before{content:'';position:absolute;pointer-events:none;z-index:1;left:-8%;top:12%;width:22%;height:62%;background:url('assets/branch-115.webp') center/contain no-repeat;mix-blend-mode:multiply;opacity:.35;mask-image:linear-gradient(transparent,#000 20%,#000 70%,transparent);transform:rotate(-12deg)}
+.hero .hero-photo:after{content:none}
+.about-photo figcaption{margin-top:-4%;position:relative;z-index:2}
+@media(max-width:700px){.pains-photo{width:min(100%,340px)}.portrait-blend:after{right:-9%;width:38%;opacity:.6}}

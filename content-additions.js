@@ -176,3 +176,9 @@ const bookingTitle = document.querySelector('#booking-title');
 if (bookingTitle) bookingTitle.textContent = 'Выбери мессенджер';
 const bookingIntro = document.querySelector('#booking-dialog > p:not(.booking-privacy)');
 if (bookingIntro) bookingIntro.textContent = 'Напиши мне, чтобы согласовать день и время сеанса.';
+document.querySelectorAll('.hero-photo img, .pains-photo img, .about-photo img, .session-photo img').forEach(img => {
+  const blend = document.createElement('div');
+  blend.className = 'portrait-blend';
+  img.replaceWith(blend);
+  blend.append(img);
+});
