@@ -418,3 +418,4 @@ body{background:#f5f8f8;color:#45565d}h1,h2,h3{color:#3e6875}.hero{background:ra
 .pains-photo,.about-photo,.session-photo,.final .photo{border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible;padding:0}
 .pains-photo img,.about-photo img,.session-photo img,.final .photo img{border:0;border-radius:0;box-shadow:none;mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent),linear-gradient(to bottom,transparent,#000 8%,#000 92%,transparent);mask-composite:intersect}
 .about-photo figcaption{background:transparent;border:0;padding-top:8px}.about-photo figcaption:before,.about-photo figcaption:after{content:none}
+.final .photo{display:none}.final-grid{grid-template-columns:minmax(0,1fr)}.final .closing-copy{max-width:760px}
