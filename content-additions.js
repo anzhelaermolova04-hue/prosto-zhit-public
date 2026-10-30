@@ -40,12 +40,14 @@ if (quiz) {
       const context = canvas.getContext('2d');
       if (source) context.drawImage(source, 0, 0);
       else { context.fillStyle = '#f6e5df'; context.fillRect(0, 0, canvas.width, canvas.height); context.strokeStyle = '#c9a961'; context.lineWidth = 8; context.strokeRect(35, 35, canvas.width - 70, canvas.height - 70); context.fillStyle = '#426777'; context.font = '72px Georgia'; context.textAlign = 'center'; context.fillText('РАЗРЕШЕНИЕ', canvas.width / 2, 230); context.font = '42px Georgia'; context.fillText('ничего не делать', canvas.width / 2, 310); }
-      context.font = `600 ${Math.round(canvas.width * .055)}px Cormorant Garamond, Georgia, serif`;
-      context.fillStyle = '#7a2230'; context.textAlign = 'center'; context.textBaseline = 'middle';
-      context.fillText(name, canvas.width * .5, canvas.height * .4);
+      context.font = `400 ${Math.round(canvas.width * .092)}px "Marck Script", cursive`;
+      context.fillStyle = '#2462ad'; context.textAlign = 'center'; context.textBaseline = 'middle';
+      context.save(); context.translate(canvas.width * .5, canvas.height * .4); context.rotate(-.035);
+      context.fillText(name, 0, 0); context.restore();
       complete(canvas.toDataURL('image/png'));
     };
-    image.onload = () => paint(image); image.onerror = () => paint();
+    const withFont = source => document.fonts.load('72px "Marck Script"').catch(() => {}).then(() => paint(source));
+    image.onload = () => withFont(image); image.onerror = () => withFont();
     image.src = 'assets/permission-certificate.jpg';
   };
   quiz.addEventListener('click', event => {
