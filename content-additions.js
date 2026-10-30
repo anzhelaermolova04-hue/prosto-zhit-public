@@ -91,7 +91,7 @@ if (heroPhoto) {
 }
 const aboutPhoto = document.querySelector('.about-photo img');
 if (aboutPhoto) {
-  aboutPhoto.src = 'assets/session-julia.jpg';
+  aboutPhoto.src = 'assets/session-with-client-2026.jpg';
   aboutPhoto.removeAttribute('srcset'); aboutPhoto.removeAttribute('sizes');
   aboutPhoto.alt = 'Юлия Ермолова проводит индивидуальный сеанс Access Bars';
 }
