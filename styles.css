@@ -481,6 +481,8 @@ h1,h2,h3,.hero h1,.about-personal h3,.added-closing,.steps-list strong,.question
 ::selection{background:#741e32;color:#fffaf3}
 .hero .brand img,.final .closing-copy>img,.booking-mark img{filter:sepia(1) saturate(1.15) hue-rotate(330deg) brightness(.7)}
 .hero .brand span,.about-photo figcaption span{color:var(--burgundy)}
+.hero .hero-photo{aspect-ratio:auto}.hero .hero-photo .portrait-blend{aspect-ratio:1/1.18}.hero .hero-photo .portrait-blend img{height:100%;object-fit:cover;object-position:center 74%}
+@media(max-width:1000px){.hero .hero-photo .portrait-blend{aspect-ratio:1/1.05}}
 
 
 .section-booking{margin-top:34px;max-width:700px}

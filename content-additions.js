@@ -92,7 +92,7 @@ if (heroDescription) heroDescription.textContent = 'Вы располагает�
 document.querySelector('.hero-body .aside')?.remove();
 const heroPhoto = document.querySelector('.hero-photo img');
 if (heroPhoto) {
-  heroPhoto.src = 'assets/hero-julia.jpg';
+  heroPhoto.src = 'assets/hero-julia-camera.jpg';
   heroPhoto.removeAttribute('srcset'); heroPhoto.removeAttribute('sizes');
   heroPhoto.alt = 'Юлия Ермолова, практик Access Bars';
 }
