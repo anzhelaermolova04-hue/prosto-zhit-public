@@ -74,7 +74,6 @@ if (quiz) {
   }, true);
 }
 
-document.querySelector('.hero .booking-row [data-booking]')?.insertAdjacentHTML('afterend', '<a class="cta hero-quiz-cta" href="#quiz">Получить разрешение ничего не делать <span aria-hidden="true">→</span></a>');
 const heroLead = document.querySelector('.hero-body .lead');
 if (heroLead) {
   heroLead.textContent = 'Вам не нужно ничего объяснять, вспоминать и делать правильно.';
