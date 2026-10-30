@@ -240,3 +240,15 @@ document.querySelector('.hero')?.after(heroDivider);
 const personalBlock = document.querySelector('.about-personal');
 const personalPhoto = document.querySelector('.about-photo');
 if (personalBlock && personalPhoto) personalBlock.prepend(personalPhoto);
+
+const heroOffer = document.querySelector('.hero-facts');
+if (heroOffer) heroOffer.innerHTML = '<strong class="hero-offer-price">5 900 ₽ <span>за сеанс</span></strong><span class="hero-offer-details">45–60 минут · отдельный кабинет в коворкинге в центре Москвы</span>';
+document.querySelectorAll('main [data-booking]').forEach(button => {
+  if (button.closest('.hero')) return;
+  const terms = document.createElement('div');
+  terms.className = 'booking-terms';
+  terms.innerHTML = '<strong>5 900 ₽ за сеанс</strong><span>45–60 минут · отдельный кабинет в коворкинге в центре Москвы</span>';
+  button.after(terms);
+});
+document.querySelector('.final .facts')?.remove();
+if (sessionConditions[1]) sessionConditions[1].textContent = 'Отдельный кабинет в коворкинге в центре Москвы. Точное место и время согласуем заранее. Выдаю чек.';

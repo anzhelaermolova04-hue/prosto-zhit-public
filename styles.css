@@ -507,3 +507,14 @@ h1,h2,h3,.hero h1,.about-personal h3,.added-closing,.steps-list strong,.question
 @keyframes divider-sway{from{transform:translate(-3px,1px) rotate(61deg)}to{transform:translate(3px,-1px) rotate(69deg)}}
 @media(prefers-reduced-motion:reduce){.page-botanical:after{animation:none}}
 .about .split{grid-template-columns:minmax(0,1fr);gap:0}.about .split>div{width:100%;max-width:860px;margin-inline:auto}.about-personal>.about-photo{width:min(100%,440px);max-width:440px;margin:0 auto 30px}
+
+
+.hero .hero-facts{display:flex;flex-direction:column;align-items:flex-start;gap:8px;max-width:560px;margin:28px 0;padding:0;border:0}
+.hero .hero-facts .hero-offer-price{font-family:Manrope,Arial,sans-serif;font-size:clamp(32px,3vw,42px);line-height:1.15;color:var(--burgundy);font-weight:700}
+.hero .hero-facts .hero-offer-price span{font-size:.52em;font-weight:500}
+.hero .hero-facts .hero-offer-details{font-size:16px;line-height:1.55;font-weight:500;color:var(--ink)}
+.booking-terms{margin-top:18px;max-width:540px;color:var(--ink)}
+.booking-terms strong{display:block;font-family:Manrope,Arial,sans-serif;font-size:24px;line-height:1.3;font-weight:700;color:var(--burgundy)}
+.booking-terms>span{display:block;margin-top:5px;font-size:15px;line-height:1.55}
+.certificate-grid .booking-terms,.faq .booking-terms,.added-bonus .booking-terms{margin-inline:auto}
+@media(max-width:700px){.booking-terms strong{font-size:23px}.booking-terms>span{font-size:14px}.hero .hero-facts .hero-offer-details{font-size:15px}}
