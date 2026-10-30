@@ -8,11 +8,70 @@ const content = `
 <div class="qz-step" data-q="3"><h3>Ты ходила к психологу?</h3><div class="qz-opts"><button class="qz-opt">Нет, мне нечего там делать</button><button class="qz-opt">Да, помогло</button><button class="qz-opt">Хожу до сих пор. Лучше, но с «но»</button><button class="qz-opt">Да. Дал домашнее задание. Не сделала. Чувствую вину</button><button class="qz-opt">Я сама психолог. Ко мне тоже ходят. И я устала</button></div></div>
 <div class="qz-step" data-q="4"><h3>Что тебе ближе?</h3><div class="qz-opts"><button class="qz-opt">«Я сама разберусь»</button><button class="qz-opt">«Помогите мне разобраться»</button><button class="qz-opt">«Не хочу больше разбираться. Пусть само как-то»</button><button class="qz-opt">«Оставьте меня в покое»</button></div></div>
 <div class="qz-step" data-q="5"><h3>А теперь честно — чего ты хочешь?<small>(этот вопрос от меня лично)</small></h3><div class="qz-opts"><button class="qz-opt">Чтобы кто-то наконец сказал, что со мной всё ок</button><button class="qz-opt">Чтобы перестало крутить в голове</button><button class="qz-opt">Чтобы меня оставили в покое — все, включая меня саму</button><button class="qz-opt">Не знаю. Поэтому и здесь</button></div></div>
-<div class="qz-form"><h3>Последний шаг</h3><label>Как тебя зовут<input class="qz-name" placeholder="Твоё имя"></label><p>Куда отправить разрешение</p><div class="qz-deliv"><button class="qz-deliv-opt sel" data-delivery="dl">💾 Скачать сейчас</button><button class="qz-deliv-opt" data-delivery="wa">💬 В WhatsApp</button></div><button class="qz-btn">Получить разрешение</button></div>
-<div class="qz-done"><h3>Разрешение у тебя ✦</h3><p>Распечатай, повесь на холодильник и показывай всем, кто пытается заставить тебя «работать над собой».</p><img class="qz-cert" alt="Твоё разрешение"><p>Теперь осталось только прийти и получить то, ради чего всё это.</p><button class="qz-btn qz-booking">Подобрать время сеанса →</button></div></div></div></section>`;
+<div class="qz-form"><h3>Куда прислать сертификат?</h3><label>Как тебя зовут<input class="qz-name" placeholder="Твоё имя" autocomplete="given-name"></label><p>Выбери мессенджер</p><div class="qz-deliv"><button class="qz-deliv-opt sel" data-delivery="whatsapp" type="button">WhatsApp</button><button class="qz-deliv-opt" data-delivery="max" type="button">MAX</button></div><label class="qz-contact-label">Номер WhatsApp<input class="qz-contact" placeholder="+7 999 000-00-00" inputmode="tel" autocomplete="tel"></label><p class="qz-error" role="alert" hidden>Укажи имя и контакт — туда я пришлю сертификат.</p><button class="qz-btn qz-cert-request" type="button">Получить сертификат</button></div>
+<div class="qz-done"><h3>Сертификат готов ✦</h3><p>Я подготовила его для тебя. Нажми кнопку, чтобы написать мне в выбранный мессенджер — я пришлю файл туда.</p><img class="qz-cert" alt="Сертификат с именем участника"><button class="qz-btn qz-delivery-link qz-booking" type="button"></button></div></div></div></section>`;
 document.querySelector('.about')?.insertAdjacentHTML('beforebegin', content);
 const quiz=document.querySelector('#qz-widget');
 if(quiz){const steps=[...quiz.querySelectorAll('.qz-step')],fill=quiz.querySelector('.qz-fill');let current=1;const show=n=>{steps.forEach(s=>s.classList.toggle('active',Number(s.dataset.q)===n));fill.style.width=`${n/5*100}%`};quiz.querySelectorAll('.qz-opt').forEach(opt=>opt.addEventListener('click',()=>{const step=opt.closest('.qz-step');step.querySelectorAll('.qz-opt').forEach(x=>x.classList.remove('sel'));opt.classList.add('sel');setTimeout(()=>{if(current<5){current++;show(current)}else{steps.forEach(x=>x.classList.remove('active'));quiz.querySelector('.qz-form').classList.add('active');fill.style.width='100%'}},380)}));quiz.querySelectorAll('.qz-deliv-opt').forEach(opt=>opt.addEventListener('click',()=>{quiz.querySelectorAll('.qz-deliv-opt').forEach(x=>x.classList.remove('sel'));opt.classList.add('sel')}));quiz.querySelector('.qz-booking').addEventListener('click',()=>document.querySelector('#booking-dialog')?.showModal());quiz.querySelector('.qz-btn:not(.qz-booking)').addEventListener('click',()=>{const name=quiz.querySelector('.qz-name').value.trim()||'Друг',delivery=quiz.querySelector('.qz-deliv-opt.sel').dataset.delivery,image=new Image();image.crossOrigin='anonymous';image.onload=()=>{const c=document.createElement('canvas'),x=c.getContext('2d');c.width=image.naturalWidth;c.height=image.naturalHeight;x.drawImage(image,0,0);x.font=`600 ${Math.round(c.width*.072)}px Cormorant Garamond, Georgia, serif`;x.fillStyle='#7a2230';x.textAlign='center';x.textBaseline='middle';x.fillText(name,c.width*.5,c.height*.4);const data=c.toDataURL('image/png');quiz.querySelector('.qz-cert').src=data;quiz.querySelector('.qz-form').classList.remove('active');quiz.querySelector('.qz-done').classList.add('active');if(delivery==='dl'){const a=document.createElement('a');a.href=data;a.download=`Razreshenie_${name}.png`;a.click()}else window.open(`https://wa.me/79951513253?text=${encodeURIComponent(`Юль, прошла квиз — хочу сеанс. Меня зовут ${name}`)}`,'_blank','noopener')};image.onerror=()=>window.open('https://wa.me/79951513253','_blank','noopener');image.src='https://i.ibb.co/S4sXPx5R/Chat-GPT-29-2026-03-39-26.png'})}
+
+// The quiz has no server: a filled contact is required before the certificate is revealed,
+// then the visitor is taken to the chosen messenger to send that contact to Julia.
+if (quiz) {
+  const contactInput = quiz.querySelector('.qz-contact');
+  const contactLabel = quiz.querySelector('.qz-contact-label');
+  const error = quiz.querySelector('.qz-error');
+  const requestButton = quiz.querySelector('.qz-cert-request');
+  const deliveryButton = quiz.querySelector('.qz-delivery-link');
+  const selectedDelivery = () => quiz.querySelector('.qz-deliv-opt.sel')?.dataset.delivery;
+  const updateContactLabel = () => {
+    const isMax = selectedDelivery() === 'max';
+    contactLabel.firstChild.textContent = isMax ? 'Имя или ссылка в MAX' : 'Номер WhatsApp';
+    contactInput.placeholder = isMax ? '@имя или ссылка на профиль' : '+7 999 000-00-00';
+    contactInput.inputMode = isMax ? 'text' : 'tel';
+  };
+  quiz.querySelectorAll('.qz-deliv-opt').forEach(button => button.addEventListener('click', updateContactLabel));
+  updateContactLabel();
+  const makeCertificate = (name, complete) => {
+    const image = new Image();
+    image.crossOrigin = 'anonymous';
+    const paint = source => {
+      const canvas = document.createElement('canvas');
+      canvas.width = source?.naturalWidth || 1600; canvas.height = source?.naturalHeight || 1000;
+      const context = canvas.getContext('2d');
+      if (source) context.drawImage(source, 0, 0);
+      else { context.fillStyle = '#f6e5df'; context.fillRect(0, 0, canvas.width, canvas.height); context.strokeStyle = '#c9a961'; context.lineWidth = 8; context.strokeRect(35, 35, canvas.width - 70, canvas.height - 70); context.fillStyle = '#426777'; context.font = '72px Georgia'; context.textAlign = 'center'; context.fillText('РАЗРЕШЕНИЕ', canvas.width / 2, 230); context.font = '42px Georgia'; context.fillText('ничего не делать', canvas.width / 2, 310); }
+      context.font = `600 ${Math.round(canvas.width * .072)}px Cormorant Garamond, Georgia, serif`;
+      context.fillStyle = '#7a2230'; context.textAlign = 'center'; context.textBaseline = 'middle';
+      context.fillText(name, canvas.width * .5, canvas.height * .4);
+      complete(canvas.toDataURL('image/png'));
+    };
+    image.onload = () => paint(image); image.onerror = () => paint();
+    image.src = 'https://i.ibb.co/S4sXPx5R/Chat-GPT-29-2026-03-39-26.png';
+  };
+  quiz.addEventListener('click', event => {
+    const target = event.target.closest('.qz-cert-request, .qz-delivery-link');
+    if (!target) return;
+    event.stopImmediatePropagation();
+    if (target.classList.contains('qz-cert-request')) {
+      const name = quiz.querySelector('.qz-name').value.trim();
+      const contact = contactInput.value.trim();
+      if (!name || !contact) { error.hidden = false; (!name ? quiz.querySelector('.qz-name') : contactInput).focus(); return; }
+      error.hidden = true;
+      makeCertificate(name, data => {
+        quiz.querySelector('.qz-cert').src = data;
+        quiz.querySelector('.qz-form').classList.remove('active'); quiz.querySelector('.qz-done').classList.add('active');
+        deliveryButton.textContent = selectedDelivery() === 'max' ? 'Открыть MAX →' : 'Написать в WhatsApp →';
+        deliveryButton.dataset.name = name; deliveryButton.dataset.contact = contact; deliveryButton.dataset.delivery = selectedDelivery();
+      });
+      return;
+    }
+    const message = `Юль, я прошла квиз. Меня зовут ${target.dataset.name}. Пришли, пожалуйста, сертификат сюда: ${target.dataset.contact}`;
+    if (target.dataset.delivery === 'max') {
+      navigator.clipboard?.writeText(message).catch(() => {});
+      window.open('https://max.ru/u/f9LHodD0cOL5aLSzYDBotzUH5e8lNNIxes0kPNpu0vthLGxybMEYItW7y1I', '_blank', 'noopener');
+    } else window.open(`https://wa.me/79951513253?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+  }, true);
+}
 
 document.querySelector('.hero .booking-row')?.insertAdjacentHTML('beforeend', '<a class="hero-quiz-link" href="#quiz">Получить разрешение ничего не делать <span>↓</span></a>');
 document.querySelector('.about')?.insertAdjacentHTML('afterend', `<section class="added-section added-about"><div class="wrap split"><div><p class="section-label">Обо мне</p><h2>Кто я и почему ты здесь.</h2><p>Меня зовут Юля. Я прочитала дофига книг по саморазвитию. Ходила к психологам. Пробовала медитации, аффирмации, дневники благодарности, расстановки, холотроп, энеаграмму, матрицу судьбы и ещё хер знает что. Сбилась со счёта — меня от этого уже тошнит.</p><p>Меняла всё — работу, город, отношения, причёску. Ничего не помогало надолго.</p><p>А потом попросила у Вселенной: покажи что-то, что реально работает, без бесконечной работы над собой. И мне показали Access Bars. Год ходила на сеансы сама — просто лежала и получала. Потом поняла, что хочу делать это для других, и обучилась.</p><blockquote>Я лично провожу индивидуальные сеансы в Москве. Это возможность отпустить то, что мешает жить — без разбора прошлой жизни и тяжёлой самостоятельной проработки.</blockquote><p>Про технику. Access Bars — это 32 точки на голове. Каждая отвечает за свою сферу: деньги, контроль, творчество, спокойствие, тело, старение. Когда я их касаюсь, мозг «перезагружает» заевшие мысли, которые крутятся по кругу. Это не массаж головы и не расслабление. Это работа с тем, что застряло.</p><p>«Жить в лёгкости, радости и великолепии» — звучит пафосно, знаю. Но после сеанса понимаешь: это не пафос. Это состояние, в котором ты наконец перестаёшь тащить всё на себе.</p></div><div class="added-certificate"><img src="04_Настоящие_фотографии_и_сертификат/Сертификат_выровненный_оригинальный.jpg" alt="Сертификат практика Access Bars"><p>Мой сертификат — настоящий</p></div></div></section>`);
